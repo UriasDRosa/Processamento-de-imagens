@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+    <link rel="stylesheet" href="Ex8.css">
+</head>
+<body>
+    <header>
+        <h1>Operações Aritméticas e Lógicas em Imagens</h1>
+    </header>
+    <div id="operacoes">
+        <h2>Operações Aritméticas</h2>
+        <div id="botoes">
+            <input id="btn-add" onclick="Adicao()" type="button" value="Adição">
+            <input id="btn-sbt" onclick="Subtracao()" type="button" value="Subtração">
+            <input id="btn-mult" onclick="Multiplicacao()" type="button" value="Multiplicação">
+            <input type="text" id="valor-mult" placeholder="multiplicador">
+            <input id="btn-div" onclick="Divisao()" type="button" value="Divisão">
+            <input type="text" id="valor-div" placeholder="Divisor">
+            <input id="btn-med" onclick="Media()" type="button" value="Média">
+            <input id="btn-blen" onclick="Blending()" type="button" value="Blending">
+            <input type="text" id="valor-blen" placeholder="Blending">
+        </div>
+        <div id="botoes" class="botoes-2">
+            <h2>Operações Lógicas</h2>
+            <input id="btn-and" onclick="AND()" type="button" value="AND">
+            <input id="btn-or" onclick="OR()" type="button" value="OR">
+            <input id="btn-xor" onclick="XOR()" type="button" value="XOR">
+            <input id="btn-not" onclick="NOT()" type="button" value="NOT">
+        </div>
+    </div>
+    <div class="imagens">
+        <div class="imagem-container">
+            <h2>Imagem A</h2>
+            <canvas id="canvas1"></canvas>
+            <label for="img-A" id="label-A"> Carregar imagem A</label>
+            <input type="file" id="img-A">
+        </div>
+        <div class="imagem-container">
+            <h2>Imagem B</h2>
+            <canvas id="canvas2"></canvas>
+            <label for="img-B" id="label-B"> Carregar imagem B</label>
+            <input type="file" id="img-B">
+        </div>
+        <div class="imagem-container">
+            <h2>Imagem Resultante</h2>
+            <canvas id="canvas3"></canvas>
+            <input type="button" onclick="SalvarImg()" id="botao-C" value="Salvar Imagem">
+        </div>
+        
+    </div>
+    <script src="Ex8.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+* {
+  font-family: Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: seashell;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  padding: 2%;
+}
+
+#operacoes h2 {
+  text-align: center;
+}
+
+.imagens {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#botoes {
+  text-align: center;
+  margin-top: 1%;
+}
+#botoes input {
+  text-transform: uppercase;
+  margin: 0 0.3%;
+  width: 8%;
+}
+.botoes-2 h2 {
+  margin-bottom: 1%;
+}
+.botoes-2 input {
+  text-transform: uppercase;
+  margin: 0 0.3%;
+  width: 5%;
+}
+input[type="file"] {
+  display: none;
+}
+label,
+#botao-C {
+  font-size: 1em;
+  background-color: white;
+  padding: 2%;
+  border: 2px solid black;
+}
+input,
+label:hover {
+  cursor: pointer;
+}
+input,
+button {
+  padding: 1%;
+}
+input[type="button"]:focus {
+  background-color: gainsboro;
+}
+input {
+  box-shadow: 0 0 0 0;
+  background-color: white;
+  border: 1px solid black;
+  outline: 0;
+}
+.imagem-container {
+  display: flex;
+  flex-direction: column;
+  margin: 2% 1%;
+}
+
+#canvas1,
+#canvas2,
+#canvas3 {
+  margin: 3% 0;
+}
