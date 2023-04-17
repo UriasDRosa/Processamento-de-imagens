@@ -251,11 +251,13 @@ function Blending() {
     if (imageData3.data[i] > 255) imageData3[i] = 255;
     else if (imageData3.data[i] < 0) imageData3[i] = 0;
 
-    imageData3.data[i + 1] = valor * imageData1.data[i + 1] + (1 - valor) * imageData2.data[i + 1];
+    imageData3.data[i + 1] =
+      valor * imageData1.data[i + 1] + (1 - valor) * imageData2.data[i + 1];
     if (imageData3.data[i + 1] > 255) imageData3[i + 1] = 255;
     else if (imageData3.data[i + 1] < 0) imageData3[i + 1] = 0;
 
-    imageData3.data[i + 2] = valor * imageData1.data[i + 2] + (1 - valor) * imageData2.data[i + 2];
+    imageData3.data[i + 2] =
+      valor * imageData1.data[i + 2] + (1 - valor) * imageData2.data[i + 2];
     if (imageData3.data[i + 2] > 255) imageData3[i + 2] = 255;
     else if (imageData3.data[i + 2] < 0) imageData3[i + 2] = 0;
 
@@ -264,6 +266,141 @@ function Blending() {
 
   // Desenha a imagem resultante no terceiro canvas
   context3.putImageData(imageData3, 0, 0);
+}
+
+function AND() {
+    canvas3.width = canvas1.width;
+    canvas3.height = canvas1.height;
+  
+    // Soma as duas imagens pixel a pixel
+    const imageData1 = context1.getImageData(0, 0, canvas1.width, canvas1.height);
+    const imageData2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
+    const imageData3 = context3.createImageData(canvas1.width, canvas1.height);
+    for (let i = 0; i < imageData1.data.length; i += 4) {
+      imageData3.data[i] = imageData1.data[i] & imageData2.data[i];
+      if (imageData3.data[i] > 255) imageData3[i] = 255;
+      else if (imageData3.data[i] < 0) imageData3[i] = 0;
+  
+      imageData3.data[i + 1] = imageData1.data[i + 1] & imageData2.data[i + 1];
+      if (imageData3.data[i + 1] > 255) imageData3[i + 1] = 255;
+      else if (imageData3.data[i + 1] < 0) imageData3[i + 1] = 0;
+  
+      imageData3.data[i + 2] = imageData1.data[i + 2] & imageData2.data[i + 2];
+      if (imageData3.data[i + 2] > 255) imageData3[i + 2] = 255;
+      else if (imageData3.data[i + 2] < 0) imageData3[i + 2] = 0;
+  
+      imageData3.data[i + 3] = 255;
+    }
+  
+    // Desenha a imagem resultante no terceiro canvas
+    context3.putImageData(imageData3, 0, 0);
+}
+
+function OR() {
+    canvas3.width = canvas1.width;
+    canvas3.height = canvas1.height;
+  
+    // Soma as duas imagens pixel a pixel
+    const imageData1 = context1.getImageData(0, 0, canvas1.width, canvas1.height);
+    const imageData2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
+    const imageData3 = context3.createImageData(canvas1.width, canvas1.height);
+    for (let i = 0; i < imageData1.data.length; i += 4) {
+      imageData3.data[i] = imageData1.data[i] | imageData2.data[i];
+      if (imageData3.data[i] > 255) imageData3[i] = 255;
+      else if (imageData3.data[i] < 0) imageData3[i] = 0;
+  
+      imageData3.data[i + 1] = imageData1.data[i + 1] | imageData2.data[i + 1];
+      if (imageData3.data[i + 1] > 255) imageData3[i + 1] = 255;
+      else if (imageData3.data[i + 1] < 0) imageData3[i + 1] = 0;
+  
+      imageData3.data[i + 2] = imageData1.data[i + 2] | imageData2.data[i + 2];
+      if (imageData3.data[i + 2] > 255) imageData3[i + 2] = 255;
+      else if (imageData3.data[i + 2] < 0) imageData3[i + 2] = 0;
+  
+      imageData3.data[i + 3] = 255;
+    }
+  
+    // Desenha a imagem resultante no terceiro canvas
+    context3.putImageData(imageData3, 0, 0);
+}
+
+function XOR() {
+    canvas3.width = canvas1.width;
+    canvas3.height = canvas1.height;
+  
+    // Soma as duas imagens pixel a pixel
+    const imageData1 = context1.getImageData(0, 0, canvas1.width, canvas1.height);
+    const imageData2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
+    const imageData3 = context3.createImageData(canvas1.width, canvas1.height);
+    for (let i = 0; i < imageData1.data.length; i += 4) {
+      imageData3.data[i] = imageData1.data[i] ^ imageData2.data[i];
+      if (imageData3.data[i] > 255) imageData3[i] = 255;
+      else if (imageData3.data[i] < 0) imageData3[i] = 0;
+  
+      imageData3.data[i + 1] = imageData1.data[i + 1] ^ imageData2.data[i + 1];
+      if (imageData3.data[i + 1] > 255) imageData3[i + 1] = 255;
+      else if (imageData3.data[i + 1] < 0) imageData3[i + 1] = 0;
+  
+      imageData3.data[i + 2] = imageData1.data[i + 2] ^ imageData2.data[i + 2];
+      if (imageData3.data[i + 2] > 255) imageData3[i + 2] = 255;
+      else if (imageData3.data[i + 2] < 0) imageData3[i + 2] = 0;
+  
+      imageData3.data[i + 3] = 255;
+    }
+  
+    // Desenha a imagem resultante no terceiro canvas
+    context3.putImageData(imageData3, 0, 0);
+}
+
+function NOT() {
+  let MAX = 255;
+  // Divide os pixels da imagem pelo valor do input
+  const imageData1 = context1.getImageData(0, 0, canvas1.width, canvas1.height);
+  const imageData2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
+
+  if (canvas1.width == 300) {
+    const imageData3 = context3.createImageData(canvas2.width, canvas2.height);
+    canvas3.width = canvas2.width;
+    canvas3.height = canvas2.height;
+    for (let i = 0; i < imageData2.data.length; i += 4) {
+      imageData3.data[i] = MAX - imageData2.data[i];
+      if (imageData3.data[i] > 255) imageData3[i] = 255;
+      else if (imageData3.data[i] < 0) imageData3[i] = 0;
+
+      imageData3.data[i + 1] = MAX - imageData2.data[i + 1];
+      if (imageData3.data[i + 1] > 255) imageData3[i + 1] = 255;
+      else if (imageData3.data[i + 1] < 0) imageData3[i + 1] = 0;
+
+      imageData3.data[i + 2] = MAX - imageData2.data[i + 2];
+      if (imageData3.data[i + 2] > 255) imageData3[i + 2] = 255;
+      else if (imageData3.data[i + 2] < 0) imageData3[i + 2] = 0;
+
+      imageData3.data[i + 3] = 255;
+    }
+    // Desenha a imagem resultante no terceiro canvas
+    context3.putImageData(imageData3, 0, 0);
+  } else {
+    canvas3.width = canvas1.width;
+    canvas3.height = canvas1.height;
+    const imageData3 = context3.createImageData(canvas1.width, canvas1.height);
+    for (let i = 0; i < imageData1.data.length; i += 4) {
+      imageData3.data[i] = MAX - imageData1.data[i];
+      if (imageData3.data[i] > 255) imageData3[i] = 255;
+      else if (imageData3.data[i] < 0) imageData3[i] = 0;
+
+      imageData3.data[i + 1] = MAX - imageData1.data[i + 1];
+      if (imageData3.data[i + 1] > 255) imageData3[i + 1] = 255;
+      else if (imageData3.data[i + 1] < 0) imageData3[i + 1] = 0;
+
+      imageData3.data[i + 2] = MAX - imageData1.data[i + 2];
+      if (imageData3.data[i + 2] > 255) imageData3[i + 2] = 255;
+      else if (imageData3.data[i + 2] < 0) imageData3[i + 2] = 0;
+
+      imageData3.data[i + 3] = 255;
+    }
+    // Desenha a imagem resultante no terceiro canvas
+    context3.putImageData(imageData3, 0, 0);
+  }
 }
 
 function SalvarImg() {
