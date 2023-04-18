@@ -670,3 +670,56 @@ function EightBit() {
       context3.putImageData(imageData3, 0, 0);
     }
 }
+
+
+function BrilhoH(){
+  // Define as dimensões do terceiro canvas
+  canvas3.width = canvas1.width;
+  canvas3.height = canvas1.height;
+
+  // Soma as duas imagens pixel a pixel
+  const imageData1 = context1.getImageData(0, 0, canvas1.width, canvas1.height);
+  const imageData2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
+  const imageData3 = context3.createImageData(canvas1.width, canvas1.height);
+  for (let i = 0; i < imageData1.data.length; i += 4) {
+    imageData3.data[i] = imageData1.data[i];
+    if (imageData3.data[i] > 255) imageData3[i] = 255;
+    else if (imageData3.data[i] < 0) imageData3[i] = 0;
+
+    imageData3.data[i + 1] = imageData1.data[i + 1];
+    if (imageData3.data[i + 1] > 255) imageData3[i + 1] = 255;
+    else if (imageData3.data[i + 1] < 0) imageData3[i + 1] = 0;
+
+    imageData3.data[i + 2] = imageData1.data[i + 2];
+    if (imageData3.data[i + 2] > 255) imageData3[i + 2] = 255;
+    else if (imageData3.data[i + 2] < 0) imageData3[i + 2] = 0;
+
+    imageData3.data[i + 3] = 255;
+  }
+
+  // Desenha a imagem resultante no terceiro canvas
+  context3.putImageData(imageData3, 0, 0);
+  const botaoMais = document.getElementById('mais')
+  botaoMais.style.display = '';
+}
+
+function maisB(){
+  for (let i = 0; i < imageData3.data.length; i += 4) {
+    imageData3.data[i] = imageData3.data[i] + 250;
+    if (imageData3.data[i] > 255) imageData3[i] = 255;
+    else if (imageData3.data[i] < 0) imageData3[i] = 0;
+
+    imageData3.data[i + 1] = imageData3.data[i + 1] + 250;
+    if (imageData3.data[i + 1] > 255) imageData3[i + 1] = 255;
+    else if (imageData3.data[i + 1] < 0) imageData3[i + 1] = 0;
+
+    imageData3.data[i + 2] = imageData3.data[i + 2] + 250;
+    if (imageData3.data[i + 2] > 255) imageData3[i + 2] = 255;
+    else if (imageData3.data[i + 2] < 0) imageData3[i + 2] = 0;
+
+    imageData3.data[i + 3] = 255;
+  }
+
+  // Desenha a imagem resultante no terceiro canvas
+  context3.putImageData(imageData3, 0, 0);
+}
