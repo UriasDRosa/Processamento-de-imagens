@@ -81,3 +81,12 @@ input {
 #canvas3 {
   margin: 3% 0;
 }
+
+#outros{
+  margin: 2%;
+  text-align: center;
+}
+
+#outros input{
+  margin: 2% 0.3% 0 0.3%;
+}
